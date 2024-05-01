@@ -1,5 +1,7 @@
 package org.selenium.basics;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,8 +17,8 @@ public class WebElementCommands {
 		driver.get("https://www.saucedemo.com/");
 		
 		driver.manage().window().maximize();
-		
-		WebElement userName = driver.findElement(By.id("username"));
+		                                        	
+		WebElement userName = driver.findElement(By.id("user-name"));
 		userName.sendKeys("standard_user");
 		
 		WebElement password = driver.findElement(By.id("password"));
@@ -28,7 +30,7 @@ public class WebElementCommands {
 	}
 	
 	
-	public void MethodNameValidateDemoWebshopLogin()
+	public void ValiddateDemoWebshopLogin()
 	
 	{
 		
@@ -36,6 +38,9 @@ public class WebElementCommands {
 	WebDriver driver =new ChromeDriver();
     driver.get("https://demowebshop.tricentis.com/");
     driver.manage().window().maximize();
+    
+    WebElement login = driver.findElement(By.id ("dialog-notifications-success"));
+    login.click();
 	
 	
 	WebElement userName = driver.findElement(By.id("Email"));
@@ -51,10 +56,12 @@ public class WebElementCommands {
 	public static void main(String[] args) {
 		
 		WebElementCommands web1 = new WebElementCommands();
-		web1.Commands();
+		web1.ValiddateDemoWebshopLogin();
 		
-		WebElementCommands  web2 = new WebElementCommands();
-		web2.MethodNameValidateDemoWebshopLogin();
 	}
-
 }
+	
+	
+	
+
+
