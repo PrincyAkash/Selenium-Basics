@@ -136,8 +136,56 @@ public void RegisterPage()
 	String actualresult=auctualemailfield.getText();
 	String expectedresult ="The specified email already exists";
 	Assert.assertEquals(actualresult,expectedresult,"The specified email already exists");
+  }
+
+@Test
+public void verifyRadioButtonIsSelected() {
+	
+	boolean isfemaleselected;
+	driver.get("https://demowebshop.tricentis.com/register");
+	
+	WebElement femaleradiobutton =driver.findElement(By.xpath("//input[@id='gender-female']"));
+	isfemaleselected = femaleradiobutton.isSelected();
+	Assert.assertFalse(isfemaleselected,"Radio button is selected");
+	System.out.println("Female element is selected"+"  "+isfemaleselected);
+	femaleradiobutton.click();
+	isfemaleselected = femaleradiobutton.isSelected();
+	Assert.assertTrue(isfemaleselected,"Radio button is not selected");
+	System.out.println("Female element after selected"+" "+isfemaleselected); 
+	
+   }
+@Test
+public void verifyButtonIsEnable() {
+	boolean issubscribebuttonenable;
+	driver.get("https://demowebshop.tricentis.com/");
+	
+	WebElement subscribebutton = driver.findElement(By.xpath("//input[@value ='Subscribe']"));
+	issubscribebuttonenable = subscribebutton.isEnabled();
+	Assert.assertTrue(issubscribebuttonenable,"Subscribe button is not enable");
+	System.out.println("Subscribe button is not enable"+" "+issubscribebuttonenable); 
+	
+   }
+
+@Test
+public void verifyButtonIsDisplay() {
+	
+	boolean isvotebuttondisplayed;
+	driver.get("https://demowebshop.tricentis.com/");
+	
+	WebElement votebutton = driver.findElement(By.xpath("//input[@value ='Vote']"));
+	isvotebuttondisplayed = votebutton.isDisplayed();
+	Assert.assertTrue(isvotebuttondisplayed,"Vote button is not enable");
+	System.out.println("Vote button is not enable"+" "+isvotebuttondisplayed); 
+	
+   }
+		
+	
 }
-}
+	
+
+	
+
+
 
 	
 
