@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -178,15 +179,52 @@ public void verifyButtonIsDisplay() {
 	System.out.println("Vote button is not enable"+" "+isvotebuttondisplayed); 
 	
    }
-		
+
+	@Test
+	public void verifyRightClick() {
+		driver.get("https://demo.guru99.com/test/simple_context_menu.html");
+		WebElement rightclickbutton =driver.findElement(By.xpath(null));
+		Actions action =new Actions(driver);
+		action.contextClick(rightclickbutton).build().perform();
+	}
+
+@Test
+	public void verifyDoubleClick() {
+		driver.get("https://demo.guru99.com/test/simple_context_menu.html");	
+		WebElement doubleclick =driver.findElement(By.xpath("//button[text()='Double-Click Me To See Alert']"));
+		Actions action =new Actions(driver);
+		action.doubleClick(doubleclick).build().perform();
 	
-}
+	}
+
+@Test
+   public void verifyDragAndDrop() { 
 	
-
-	
-
-
-
+	   driver.get("https://demoqa.com/droppable");
+	   WebElement dragelement = driver.findElement(By.xpath("//div[@id ='draggable']"));
+	   WebElement dropelement = driver.findElement(By.xpath("//div[@id ='droppable']"));
+	   Actions action =new Actions(driver);
+	   action.dragAndDrop(dragelement, dropelement).build().perform();
+	   }
+@Test
+  public void verifyDragAndDropOffset() {
+	  
+	  driver.get("https://demoqa.com/dragabble");
+	  WebElement dragelement = driver.findElement(By.xpath("//div[@id ='dragBox']"));
+	  Actions action =new Actions(driver);
+	  action.dragAndDropBy(dragelement, 150, 150).build().perform();
+	 
+  }
+@Test
+  public void verifyMouseHover() {
+	  driver.get("https://demoqa.com/menu/");
+	  WebElement mainelement = driver.findElement(By.xpath("//a[text()='Main Item 2']"));
+	  Actions action =new Actions(driver);
+	  action.moveToElement(mainelement).build().perform();
+	  WebElement subelement =driver.findElement(By.xpath("//a[text()='SUB SUB LIST »']"));
+	  action.moveToElement(subelement).build().perform();
+	  }
+	}
 	
 
 
