@@ -183,7 +183,7 @@ public void verifyButtonIsDisplay() {
 	@Test
 	public void verifyRightClick() {
 		driver.get("https://demo.guru99.com/test/simple_context_menu.html");
-		WebElement rightclickbutton =driver.findElement(By.xpath(null));
+		WebElement rightclickbutton =driver.findElement(By.xpath("//span[@class ='context-menu-one btn btn-neutral']"));
 		Actions action =new Actions(driver);
 		action.contextClick(rightclickbutton).build().perform();
 	}
